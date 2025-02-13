@@ -6,21 +6,14 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type Car struct {
-	Id     int
-	Number string
-	Model  string
-	Type   string
-}
-
 type Flight struct {
-	Id            string
-	Number        string
-	Airlinenumber string
-	Source        string
-	Destenation   string
-	Capacity      int
-	Price         float32
+	Id            string  `json:"id"`
+	Number        string  `json:"number"`
+	Airlinenumber string  `json:"airline_number"`
+	Source        string  `json:"source"`
+	Destenation   string  `json:"destination"`
+	Capacity      int     `json:"capacity"`
+	Price         float32 `json:"price"`
 }
 
 func readallFlightById(c *gin.Context) {
