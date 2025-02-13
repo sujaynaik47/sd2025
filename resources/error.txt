@@ -1,0 +1,50 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+type Car struct {
+	Id     int
+	Number string
+	Model  string
+	Type   string
+}
+
+type Flight struct {
+	Id            string
+	Number        string
+	Airlinenumber string
+	Source        string
+	Destenation   string
+	Capacity      int
+	Price         float32
+}
+func readallFlights(c *gin.context)
+{   
+	
+}
+func readallFlightsById(c *gin.Context) {
+	id :=c.Param("id")
+	flight = Flight{
+		Id: "1203", Number: "m757", Airlinenumber: "3210", Source: "mangalore", Destenation: "bangloare", Capacity: 143, Price: 1234.321,
+	}
+	c.JSON(http.StatusOK, flight)
+}
+
+func main() {
+	/*flight1 := Flight{
+		Id: "123", Number: "aib123", Airlinenumber: "321", Source: "delhi", Destenation: "bangloare", Capacity: 123, Price: 123.321,
+	}*/
+
+	r := gin.Default()
+	r.GET("/flights", readallFlights)
+	r.GET("/flights/:id", readallFlightsById)
+	r.Run()
+
+	fmt.Println(flight1)
+
+}
